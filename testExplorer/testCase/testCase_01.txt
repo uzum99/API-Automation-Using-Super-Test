@@ -1,0 +1,17 @@
+const request = require("supertest"); // import supertest
+const { expect } = require("chai"); //import chai
+const baseUrl = require("../globalVariable/baseUrl")
+
+//const url = supertest("https://restful-api.dev/"); //global varible url
+const url = `${baseUrl}`; //define global variabel
+
+//test suite
+describe("Test API restful", function () {
+    //test case 1
+    it("Test GET", async function () {
+        const response = await request(url).get("/objects/12"); //parameter yg mau di hit https://api.restful-api.dev/objects
+        //assertation / verifikasi
+        expect(response.status).to.equal(200);
+        console.log(response.body);
+    });
+});
